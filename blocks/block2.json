@@ -1,0 +1,17 @@
+{
+"type": "Question",
+"id": "block2",
+"title": "Question 2",
+"questions": [{
+    "id": "block2-question",
+    "title": "Question 2",
+    "type": "General",
+    "answers": [{
+        "id": "block2-answer",
+        "mandatory": false,
+        "q_code": "20",
+        "type": "TextField",
+        "label": "Question 2"
+    }]
+}]
+}

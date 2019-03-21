@@ -1,0 +1,98 @@
+{
+    "type": "Question",
+    "id": "arrive-in-uk",
+    "questions": [
+        {
+            "id": "arrive-in-uk-question",
+            "titles": [
+                {
+                    "value": "When did <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> most recently arrive to live in the United Kingdom?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "When did you most recently arrive to live in the United Kingdom?"
+                }
+            ],
+            "type": "General",
+            "description": "Do not count short visits away from the UK",
+            "answers": [
+                {
+                    "id": "arrive-in-uk-answer",
+                    "mandatory": true,
+                    "type": "MonthYearDate"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "length-of-stay",
+                "when": [
+                    {
+                        "id": "arrive-in-uk-answer",
+                        "condition": "greater than",
+                        "date_comparison": {
+                            "offset_by": {
+                                "years": -1
+                            },
+                            "id": "census-date-answer"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "when-arrive-in-uk",
+                "when": [
+                    {
+                        "id": "arrive-in-uk-answer",
+                        "condition": "equals",
+                        "date_comparison": {
+                            "id": "census-date-answer",
+                            "offset_by": {
+                                "years": -1
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "understand-welsh",
+                "when": [
+                    {
+                        "meta": "region_code",
+                        "condition": "equals",
+                        "value": "GB-WLS"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "language-proxy",
+                "when": [
+                    {
+                        "id": "proxy-check-answer",
+                        "condition": "equals",
+                        "value": "proxy"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "language"
+            }
+        }
+    ]
+}

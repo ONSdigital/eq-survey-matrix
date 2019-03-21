@@ -1,0 +1,64 @@
+{
+    "type": "Question",
+    "id": "term-time-address-details",
+    "questions": [
+        {
+            "id": "term-time-address-details-question",
+            "titles": [
+                {
+                    "value": "Enter details of the UK address where <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> usually stays during term time",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Enter details of the UK address where you usually stay during term time"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "term-time-address-details-answer-building",
+                    "label": "House name or number",
+                    "mandatory": true,
+                    "type": "TextField"
+                },
+                {
+                    "id": "term-time-address-details-answer-street",
+                    "label": "Street",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "term-time-address-details-answer-city",
+                    "label": "Town or city",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "term-time-address-details-answer-county",
+                    "label": "County (optional)",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "term-time-address-details-answer-postcode",
+                    "label": "Postcode",
+                    "mandatory": false,
+                    "type": "TextField"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "household-member-completed"
+            }
+        }
+    ]
+}

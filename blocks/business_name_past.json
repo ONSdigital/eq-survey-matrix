@@ -1,0 +1,39 @@
+{
+    "type": "Question",
+    "id": "business-name-past",
+    "questions": [
+        {
+            "id": "business-name-past-question",
+            "title": "What was the name of the organisation or business you worked for?",
+            "description": "If you were self-employed in your own business, give the business name.",
+            "type": "MutuallyExclusive",
+            "mandatory": true,
+            "answers": [
+                {
+                    "id": "business-name-past-answer",
+                    "label": "Organisation or business name",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "no-business-name-past-answer",
+                    "mandatory": false,
+                    "type": "Checkbox",
+                    "options": [
+                        {
+                            "label": "No organisation or worked for a private individual",
+                            "value": "No organisation or worked for a private individual"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "job-title-past"
+            }
+        }
+    ]
+}

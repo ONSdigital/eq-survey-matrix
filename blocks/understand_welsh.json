@@ -1,0 +1,88 @@
+{
+    "type": "Question",
+    "id": "understand-welsh",
+    "questions": [
+        {
+            "id": "understand-welsh-question",
+            "titles": [
+                {
+                    "value": "Can <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> understand, speak, read or write Welsh?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Can you understand, speak, read or write Welsh?"
+                }
+            ],
+            "guidance": {
+                "content": [
+                    {
+                        "title": "A question about national identity, including Welsh, will follow"
+                    }
+                ]
+            },
+            "mandatory": true,
+            "type": "MutuallyExclusive",
+            "answers": [
+                {
+                    "id": "understand-welsh-answer",
+                    "mandatory": false,
+                    "type": "Checkbox",
+                    "options": [
+                        {
+                            "label": "Understand spoken Welsh",
+                            "value": "Understand spoken Welsh"
+                        },
+                        {
+                            "label": "Speak Welsh",
+                            "value": "Speak Welsh"
+                        },
+                        {
+                            "label": "Read Welsh",
+                            "value": "Read Welsh"
+                        },
+                        {
+                            "label": "Write Welsh",
+                            "value": "Write Welsh"
+                        }
+                    ]
+                },
+                {
+                    "id": "understand-welsh-answer-exclusive",
+                    "type": "Checkbox",
+                    "mandatory": false,
+                    "options": [
+                        {
+                            "label": "None of the these",
+                            "value": "None of the these"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "language-proxy",
+                "when": [
+                    {
+                        "id": "proxy-check-answer",
+                        "condition": "equals",
+                        "value": "proxy"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "language"
+            }
+        }
+    ]
+}

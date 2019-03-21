@@ -1,0 +1,103 @@
+{
+    "type": "Question",
+    "id": "employers-business",
+    "questions": [
+        {
+            "id": "employers-business-england-question",
+            "titles": [
+                {
+                    "value": "What is the main activity of <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> organisation, business or freelance work?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "What is the main activity of your organisation, business or freelance work?"
+                }
+            ],
+            "description": "For example clothing retail, general hospital, primary education, food wholesale, civil service DWP, local government housing.",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "employers-business-england-answer",
+                    "label": "Description",
+                    "mandatory": true,
+                    "type": "TextArea",
+                    "max_length": 200,
+                    "validation": {
+                        "messages": {
+                            "MAX_LENGTH_EXCEEDED": "Your answer has to be less than %(max)d characters long"
+                        }
+                    }
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "employers-business-wales-question",
+            "titles": [
+                {
+                    "value": "What is the main activity of <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> organisation, business or freelance work?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "What is the main activity of your organisation, business or freelance work?"
+                }
+            ],
+            "description": "For example clothing retail, general hospital, primary education, food wholesale, civil service DVLA, local government housing.",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "employers-business-wales-answer",
+                    "label": "Description",
+                    "mandatory": true,
+                    "type": "TextArea",
+                    "max_length": 200,
+                    "validation": {
+                        "messages": {
+                            "MAX_LENGTH_EXCEEDED": "Your answer has to be less than %(max)d characters long"
+                        }
+                    }
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "not equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "supervise"
+            }
+        }
+    ]
+}

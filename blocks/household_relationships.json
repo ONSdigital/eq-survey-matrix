@@ -1,0 +1,74 @@
+{
+    "type": "Question",
+    "id": "household-relationships",
+    "questions": [
+        {
+            "id": "household-relationships-question",
+            "title": "How are the following people related to {{ [answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name }}?",
+            "type": "Relationship",
+            "member_label": "[answers['first-name'], answers['last-name']] | format_household_name",
+            "answers": [
+                {
+                    "id": "household-relationships-answer",
+                    "label": "%(other_person)s is %(current_person)s's",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Husband or wife",
+                            "value": "Husband or wife"
+                        },
+                        {
+                            "label": "Same-sex civil partner",
+                            "value": "Same-sex civil partner"
+                        },
+                        {
+                            "label": "Partner",
+                            "value": "Partner"
+                        },
+                        {
+                            "label": "Son or daughter",
+                            "value": "Son or daughter"
+                        },
+                        {
+                            "label": "Step-child",
+                            "value": "Step-child"
+                        },
+                        {
+                            "label": "Brother or sister",
+                            "value": "Brother or sister"
+                        },
+                        {
+                            "label": "Step\u2013brother or step\u2013sister",
+                            "value": "Step\u2013brother or step\u2013sister"
+                        },
+                        {
+                            "label": "Mother or father",
+                            "value": "Mother or father"
+                        },
+                        {
+                            "label": "Step-mother or step-father",
+                            "value": "Step-mother or step-father"
+                        },
+                        {
+                            "label": "Grandchild",
+                            "value": "Grandchild"
+                        },
+                        {
+                            "label": "Grandparent",
+                            "value": "Grandparent"
+                        },
+                        {
+                            "label": "Relation - other",
+                            "value": "Relation - other"
+                        },
+                        {
+                            "label": "Unrelated (including foster child)",
+                            "value": "Unrelated (including foster child)"
+                        }
+                    ],
+                    "type": "Relationship"
+                }
+            ]
+        }
+    ]
+}

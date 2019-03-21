@@ -1,0 +1,69 @@
+{
+    "type": "Question",
+    "id": "armed-forces",
+    "questions": [
+        {
+            "id": "armed-forces-question",
+            "titles": [
+                {
+                    "value": "Has <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> previously served in the UK Armed Forces?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Have you previously served in the UK Armed Forces?"
+                }
+            ],
+            "guidance": {
+                "content": [
+                    {
+                        "title": "Current serving members should select 'No'"
+                    }
+                ]
+            },
+            "type": "General",
+            "answers": [
+                {
+                    "id": "armed-forces-answer",
+                    "mandatory": true,
+                    "guidance": {
+                        "show_guidance": "Why your answer is important",
+                        "hide_guidance": "Why your answer is important",
+                        "content": [
+                            {
+                                "description": "We are measuring the number of people who have served in the UK Armed Forces and now left. This data is needed to support central and local government commitments made under the Armed Forces Covenant. This is a promise by the nation ensuring that those who serve or who have served in the armed forces, and their families, are treated fairly."
+                            }
+                        ]
+                    },
+                    "options": [
+                        {
+                            "label": "No",
+                            "value": "No"
+                        },
+                        {
+                            "label": "Yes, previously served in Regular Armed Forces",
+                            "value": "Yes, previously served in Regular Armed Forces"
+                        },
+                        {
+                            "label": "Yes, previously served in Reserve Armed Forces",
+                            "value": "Yes, previously served in Reserve Armed Forces"
+                        }
+                    ],
+                    "type": "Checkbox"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "employment-status"
+            }
+        }
+    ]
+}

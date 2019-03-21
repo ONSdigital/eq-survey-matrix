@@ -1,0 +1,143 @@
+{
+    "type": "Question",
+    "id": "national-identity",
+    "questions": [
+        {
+            "id": "national-identity-england-question",
+            "title": "How would you describe your national identity?",
+            "type": "General",
+            "definitions": [
+                {
+                    "title": "What do we mean by 'national identity'?",
+                    "content": [
+                        {
+                            "description": "National Identity is not dependent on your ethnic group or citizenship. This could be about the country or countries where you feel you belong, or think of as home."
+                        }
+                    ]
+                }
+            ],
+            "answers": [
+                {
+                    "id": "national-identity-england-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "English",
+                            "value": "English"
+                        },
+                        {
+                            "label": "Welsh",
+                            "value": "Welsh"
+                        },
+                        {
+                            "label": "Scottish",
+                            "value": "Scottish"
+                        },
+                        {
+                            "label": "Northern Irish",
+                            "value": "Northern Irish"
+                        },
+                        {
+                            "label": "British",
+                            "value": "British"
+                        },
+                        {
+                            "label": "Other",
+                            "value": "Other",
+                            "detail_answer": {
+                                "id": "national-identity-england-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please describe your national identity"
+                            }
+                        }
+                    ],
+                    "type": "Checkbox"
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "national-identity-wales-question",
+            "title": "How would you describe your national identity?",
+            "type": "General",
+            "definitions": [
+                {
+                    "title": "What do we mean by 'national identity'?",
+                    "content": [
+                        {
+                            "description": "National Identity is not dependent on your ethnic group or citizenship. This could be about the country or countries where you feel you belong, or think of as home."
+                        }
+                    ]
+                }
+            ],
+            "answers": [
+                {
+                    "id": "national-identity-wales-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Welsh",
+                            "value": "Welsh"
+                        },
+                        {
+                            "label": "English",
+                            "value": "English"
+                        },
+                        {
+                            "label": "Scottish",
+                            "value": "Scottish"
+                        },
+                        {
+                            "label": "Northern Irish",
+                            "value": "Northern Irish"
+                        },
+                        {
+                            "label": "British",
+                            "value": "British"
+                        },
+                        {
+                            "label": "Other",
+                            "value": "Other",
+                            "detail_answer": {
+                                "id": "national-identity-wales-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please describe your national identity"
+                            }
+                        }
+                    ],
+                    "type": "Checkbox"
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "not equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "ethnic-group"
+            }
+        }
+    ]
+}

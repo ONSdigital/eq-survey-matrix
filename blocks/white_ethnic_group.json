@@ -1,0 +1,161 @@
+{
+    "type": "Question",
+    "id": "white-ethnic-group",
+    "questions": [
+        {
+            "id": "white-ethnic-group-england-question",
+            "titles": [
+                {
+                    "value": "Which one best describes <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> White ethnic group or background?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Which one best describes your White ethnic group or background?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "guidance": {
+                        "show_guidance": "Why your answer is important",
+                        "hide_guidance": "Why your answer is important",
+                        "content": [
+                            {
+                                "description": "How you define your ethnic group is up to you. Sharing this information enables the government and other organisations to provide appropriate resources and policies such as housing, education, health and criminal justice."
+                            }
+                        ]
+                    },
+                    "id": "white-ethnic-group-england-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "English, Welsh, Scottish, Northern Irish or British",
+                            "value": "English, Welsh, Scottish, Northern Irish or British"
+                        },
+                        {
+                            "label": "Irish",
+                            "value": "Irish"
+                        },
+                        {
+                            "label": "Gypsy or Irish Traveller",
+                            "value": "Gypsy or Irish Traveller"
+                        },
+                        {
+                            "label": "Roma",
+                            "value": "Roma"
+                        },
+                        {
+                            "label": "Any other White background",
+                            "value": "Other",
+                            "detail_answer": {
+                                "id": "white-ethnic-group-england-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please specify White background"
+                            }
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "white-ethnic-group-wales-question",
+            "titles": [
+                {
+                    "value": "Which one best describes <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> White ethnic group or background?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Which one best describes your White ethnic group or background?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "guidance": {
+                        "show_guidance": "Why your answer is important",
+                        "hide_guidance": "Why your answer is important",
+                        "content": [
+                            {
+                                "description": "How you define your ethnic group is up to you. Sharing this information enables the government and other organisations to provide appropriate resources and policies such as housing, education, health and criminal justice."
+                            }
+                        ]
+                    },
+                    "id": "white-ethnic-group-wales-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Welsh, English, Scottish, Northern Irish or British",
+                            "value": "Welsh, English, Scottish, Northern Irish or British"
+                        },
+                        {
+                            "label": "Irish",
+                            "value": "Irish"
+                        },
+                        {
+                            "label": "Gypsy or Irish Traveller",
+                            "value": "Gypsy or Irish Traveller"
+                        },
+                        {
+                            "label": "Roma",
+                            "value": "Roma"
+                        },
+                        {
+                            "label": "Any other White background",
+                            "value": "Other",
+                            "detail_answer": {
+                                "id": "white-ethnic-group-wales-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please specify White background"
+                            }
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "not equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "religion"
+            }
+        }
+    ]
+}

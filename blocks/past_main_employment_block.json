@@ -1,0 +1,13 @@
+{
+    "type": "Interstitial",
+    "id": "past-main-employment-block",
+    "title": "Answer the next set of questions for your last main job",
+    "description": "Your main job is the job in which you usually worked the most hours",
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "main-job-type-past"
+            }
+        }
+    ]
+}

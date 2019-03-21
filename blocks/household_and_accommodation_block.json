@@ -1,0 +1,15 @@
+{
+    "type": "Interstitial",
+    "id": "household-and-accommodation-block",
+    "title": "Household accommodation",
+    "description": "In this section, we\u2019re going to ask you about the accommodation you live in.",
+    "content": [
+        {
+            "title": "Information you need",
+            "list": [
+                "Type of property, and if it\u2019s owned or rented",
+                "Type of landlord, if the property is rented"
+            ]
+        }
+    ]
+}

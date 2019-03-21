@@ -1,0 +1,13 @@
+{
+    "type": "Interstitial",
+    "id": "qualifications",
+    "title": "The next set of questions is about your qualifications",
+    "description": "Record any qualifications you have ever achieved in England, Wales or worldwide, including equivalents, even if you are not using them now.",
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "apprenticeship"
+            }
+        }
+    ]
+}

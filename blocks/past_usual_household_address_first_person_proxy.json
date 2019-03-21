@@ -1,0 +1,86 @@
+{
+    "type": "Question",
+    "id": "past-usual-household-address-first-person-proxy",
+    "questions": [
+        {
+            "id": "past-usual-address-household-first-person-question-proxy",
+            "title": "One year ago, what was <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> usual address?",
+            "type": "General",
+            "description": "If they had no usual address one year ago, state the address where they were staying",
+            "answers": [
+                {
+                    "id": "past-usual-address-household-first-person-answer-proxy",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "{{answers['address-line-1']}}, {{answers['address-line-2']}}",
+                            "value": "householdaddress"
+                        },
+                        {
+                            "label": "Student term-time or boarding school address in the UK",
+                            "value": "Student term-time or boarding school address in the UK"
+                        },
+                        {
+                            "label": "Another address in the UK",
+                            "value": "Another address in the UK"
+                        },
+                        {
+                            "label": "An address outside the UK",
+                            "value": "Other",
+                            "detail_answer": {
+                                "id": "past-usual-address-household-first-person-answer-other-proxy",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please enter the country"
+                            }
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "last-year-address",
+                "when": [
+                    {
+                        "id": "past-usual-address-household-first-person-answer-proxy",
+                        "condition": "equals",
+                        "value": "Student term-time or boarding school address in the UK"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "last-year-address",
+                "when": [
+                    {
+                        "id": "past-usual-address-household-first-person-answer-proxy",
+                        "condition": "equals",
+                        "value": "Another address in the UK"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "passports-proxy",
+                "when": [
+                    {
+                        "id": "proxy-check-answer",
+                        "condition": "equals",
+                        "value": "proxy"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "passports"
+            }
+        }
+    ]
+}

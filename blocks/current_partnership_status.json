@@ -1,0 +1,49 @@
+{
+    "type": "Question",
+    "id": "current-partnership-status",
+    "questions": [
+        {
+            "id": "currrent-partnership-status-question",
+            "titles": [
+                {
+                    "value": "Who is <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive }}</em> registered civil partnership to?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Who is your registered civil partnership to?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "current-partnership-status-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Someone of the opposite sex",
+                            "value": "Someone of the opposite sex"
+                        },
+                        {
+                            "label": "Someone of the same sex",
+                            "value": "Someone of the same sex"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "another-address"
+            }
+        }
+    ]
+}

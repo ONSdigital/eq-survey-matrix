@@ -1,0 +1,75 @@
+{
+    "type": "Question",
+    "id": "a-level",
+    "questions": [
+        {
+            "id": "a-level-question",
+            "titles": [
+                {
+                    "value": "Has <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> achieved an AS, A level or equivalent qualification?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Have you achieved an AS, A level or equivalent qualification?"
+                }
+            ],
+            "guidance": {
+                "content": [
+                    {
+                        "title": "Include equivalent qualifications achieved anywhere outside England and Wales"
+                    }
+                ]
+            },
+            "type": "MutuallyExclusive",
+            "mandatory": true,
+            "answers": [
+                {
+                    "id": "a-level-answer",
+                    "mandatory": false,
+                    "type": "Checkbox",
+                    "options": [
+                        {
+                            "label": "2 or more A levels",
+                            "value": "2 or more A levels",
+                            "description": "Include 4 or more AS levels"
+                        },
+                        {
+                            "label": "1 A level",
+                            "value": "1 A level",
+                            "description": "Include 2 to 3 AS levels"
+                        },
+                        {
+                            "label": "1 AS level",
+                            "value": "1 AS level"
+                        }
+                    ]
+                },
+                {
+                    "id": "a-level-answer-exclusive",
+                    "type": "Checkbox",
+                    "mandatory": false,
+                    "options": [
+                        {
+                            "label": "None of these apply",
+                            "value": "None of these apply",
+                            "description": "Questions on GCSEs and equivalents will follow"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "gcse"
+            }
+        }
+    ]
+}

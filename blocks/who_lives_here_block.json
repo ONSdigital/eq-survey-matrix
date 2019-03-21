@@ -1,0 +1,15 @@
+{
+    "type": "Interstitial",
+    "id": "who-lives-here-block",
+    "title": "People who live in the household",
+    "description": "In this section, we\u2019re going to ask you about the people that live at <em>{{answers['address-line-1']}}</em>.",
+    "content": [
+        {
+            "title": "Information you need",
+            "list": [
+                "Names of the people living in household and how they are related",
+                "The number of visitors staying in the household on {{ get_current_date() }}"
+            ]
+        }
+    ]
+}

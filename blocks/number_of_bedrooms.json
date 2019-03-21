@@ -1,0 +1,26 @@
+{
+    "type": "Question",
+    "id": "number-of-bedrooms",
+    "questions": [
+        {
+            "id": "number-of-bedrooms-question",
+            "title": "How many bedrooms are available for use only by this household?",
+            "type": "General",
+            "guidance": {
+                "content": [
+                    {
+                        "title": "Include all rooms built or converted for use as bedrooms"
+                    }
+                ]
+            },
+            "answers": [
+                {
+                    "id": "number-of-bedrooms-answer",
+                    "label": "Number of bedrooms",
+                    "mandatory": true,
+                    "type": "Number"
+                }
+            ]
+        }
+    ]
+}

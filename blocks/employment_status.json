@@ -1,0 +1,104 @@
+{
+    "type": "Question",
+    "id": "employment-status",
+    "questions": [
+        {
+            "id": "employment-status-question",
+            "titles": [
+                {
+                    "value": "In the last seven days, was <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> doing any of the following?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "In the last seven days, were you doing any of the following?"
+                }
+            ],
+            "type": "MutuallyExclusive",
+            "mandatory": true,
+            "guidance": {
+                "content": [
+                    {
+                        "title": "Include casual or temporary work, even if only for one hour"
+                    }
+                ]
+            },
+            "answers": [
+                {
+                    "id": "employment-status-answer",
+                    "mandatory": false,
+                    "type": "Checkbox",
+                    "options": [
+                        {
+                            "label": "Working as an employee",
+                            "value": "Working as an employee"
+                        },
+                        {
+                            "label": "Self-employed or freelance",
+                            "value": "Self-employed or freelance"
+                        },
+                        {
+                            "label": "Temporarily away from work ill, on holiday or temporarily laid off",
+                            "value": "Temporarily away from work ill, on holiday or temporarily laid off"
+                        },
+                        {
+                            "label": "On maternity or paternity leave",
+                            "value": "On maternity or paternity leave"
+                        },
+                        {
+                            "label": "Doing any other kind of paid work",
+                            "value": "Doing any other kind of paid work"
+                        }
+                    ]
+                },
+                {
+                    "id": "employment-status-answer-exclusive",
+                    "type": "Checkbox",
+                    "mandatory": false,
+                    "options": [
+                        {
+                            "label": "None of these apply",
+                            "value": "None of these apply"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "employment-type",
+                "when": [
+                    {
+                        "id": "employment-status-answer-exclusive",
+                        "condition": "contains",
+                        "value": "None of these apply"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "main-employment-block-proxy",
+                "when": [
+                    {
+                        "id": "proxy-check-answer",
+                        "condition": "equals",
+                        "value": "proxy"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "main-employment-block"
+            }
+        }
+    ]
+}

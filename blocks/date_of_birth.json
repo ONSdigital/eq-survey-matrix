@@ -1,0 +1,57 @@
+{
+    "type": "Question",
+    "id": "date-of-birth",
+    "questions": [
+        {
+            "id": "date-of-birth-question",
+            "titles": [
+                {
+                    "value": "What is <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive }}</em> date of birth?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "What is your date of birth?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "date-of-birth-answer",
+                    "mandatory": true,
+                    "type": "Date",
+                    "maximum": {
+                        "value": "now"
+                    },
+                    "minimum": {
+                        "value": "1900-01-01"
+                    }
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "confirm-dob-proxy",
+                "when": [
+                    {
+                        "id": "proxy-check-answer",
+                        "condition": "equals",
+                        "value": "proxy"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "confirm-dob"
+            }
+        }
+    ]
+}

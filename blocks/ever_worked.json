@@ -1,0 +1,74 @@
+{
+    "type": "Question",
+    "id": "ever-worked",
+    "questions": [
+        {
+            "id": "ever-worked-question",
+            "title": "Have you ever done any paid work?",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "ever-worked-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Yes, in the last 12 months",
+                            "value": "Yes, in the last 12 months"
+                        },
+                        {
+                            "label": "Yes, but not in the last 12 months",
+                            "value": "Yes, but not in the last 12 months"
+                        },
+                        {
+                            "label": "No, have never worked",
+                            "value": "No, have never worked"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "household-member-completed",
+                "when": [
+                    {
+                        "id": "ever-worked-answer",
+                        "condition": "equals",
+                        "value": "No, have never worked"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "household-member-completed",
+                "when": [
+                    {
+                        "id": "ever-worked-answer",
+                        "condition": "not set"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "past-main-employment-block-proxy",
+                "when": [
+                    {
+                        "id": "proxy-check-answer",
+                        "condition": "equals",
+                        "value": "proxy"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "past-main-employment-block"
+            }
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "type": "Question",
+    "id": "household-composition",
+    "questions": [
+        {
+            "id": "household-composition-question",
+            "title": "What are the names of everyone who live at <em>{{answers['address-line-1']}}</em>?",
+            "type": "RepeatingAnswer",
+            "answers": [
+                {
+                    "id": "first-name",
+                    "label": "First name",
+                    "mandatory": true,
+                    "type": "TextField",
+                    "validation": {
+                        "messages": {
+                            "MANDATORY_TEXTFIELD": "Please enter a name or remove the person to continue"
+                        }
+                    }
+                },
+                {
+                    "id": "middle-names",
+                    "label": "Middle names",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "last-name",
+                    "label": "Last name",
+                    "mandatory": true,
+                    "type": "TextField"
+                }
+            ]
+        }
+    ]
+}

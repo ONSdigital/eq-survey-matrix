@@ -1,0 +1,62 @@
+{
+    "type": "Question",
+    "id": "employment-type",
+    "questions": [
+        {
+            "id": "employment-type-question",
+            "titles": [
+                {
+                    "value": "Which of the following describes what <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> was doing in the last seven days?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Which of the following describes what you were doing in the last seven days?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "employment-type-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Retired",
+                            "value": "Retired",
+                            "description": "Whether receiving a pension or not"
+                        },
+                        {
+                            "label": "Studying",
+                            "value": "Studying"
+                        },
+                        {
+                            "label": "Looking after home or family",
+                            "value": "Looking after home or family"
+                        },
+                        {
+                            "label": "Long-term sick or disabled",
+                            "value": "Long-term sick or disabled"
+                        },
+                        {
+                            "label": "Other",
+                            "value": "Other"
+                        }
+                    ],
+                    "type": "Checkbox"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "jobseeker"
+            }
+        }
+    ]
+}

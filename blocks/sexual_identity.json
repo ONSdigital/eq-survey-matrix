@@ -1,0 +1,51 @@
+{
+    "type": "Question",
+    "id": "sexual-identity",
+    "questions": [
+        {
+            "id": "sexual-identity-question",
+            "title": "Which of the following best describes your sexual orientation?",
+            "type": "General",
+            "description": "This question is voluntary",
+            "answers": [
+                {
+                    "id": "sexual-identity-answer",
+                    "mandatory": false,
+                    "label": "Select one option only",
+                    "options": [
+                        {
+                            "label": "Straight or Heterosexual",
+                            "value": "Straight or Heterosexual"
+                        },
+                        {
+                            "label": "Gay or Lesbian",
+                            "value": "Gay or Lesbian"
+                        },
+                        {
+                            "label": "Bisexual",
+                            "value": "Bisexual"
+                        },
+                        {
+                            "label": "Other sexual orientation",
+                            "value": "Other sexual orientation",
+                            "detail_answer": {
+                                "id": "sexual-identity-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please specify your sexual orientation"
+                            }
+                        }
+                    ],
+                    "type": "Checkbox"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "birth-gender"
+            }
+        }
+    ]
+}

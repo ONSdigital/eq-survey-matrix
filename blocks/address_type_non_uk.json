@@ -1,0 +1,90 @@
+{
+    "type": "Question",
+    "id": "address-type-non-uk",
+    "questions": [
+        {
+            "id": "address-type-question-non-uk",
+            "titles": [
+                {
+                    "value": "What type of address is <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> address in {{answers['another-address-answer-other']| format_household_name}}?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "What type of address is your address in <em>{{answers['another-address-answer-other']| format_household_name}}</em>?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "address-type-answer-non-uk1",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Armed forces base address",
+                            "value": "Armed forces base address"
+                        },
+                        {
+                            "label": "Another address when working away from home",
+                            "value": "Another address when working away from home"
+                        },
+                        {
+                            "label": "Student\u2019s home address",
+                            "value": "Student\u2019s home address"
+                        },
+                        {
+                            "label": "Student\u2019s term-time address",
+                            "value": "Student\u2019s term-time address"
+                        },
+                        {
+                            "label": "Another parent or guardian\u2019s address",
+                            "value": "Another parent or guardian\u2019s address"
+                        },
+                        {
+                            "label": "Partner's address",
+                            "value": "Partner's address"
+                        },
+                        {
+                            "label": "Holiday home",
+                            "value": "Holiday home"
+                        },
+                        {
+                            "label": "Other",
+                            "value": "Other"
+                        }
+                    ],
+                    "type": "Checkbox"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "in-education-over16",
+                "when": [
+                    {
+                        "id": "date-of-birth-answer",
+                        "condition": "less than",
+                        "date_comparison": {
+                            "value": "now",
+                            "offset_by": {
+                                "years": -16
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "in-education"
+            }
+        }
+    ]
+}

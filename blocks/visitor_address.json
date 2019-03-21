@@ -1,0 +1,43 @@
+{
+    "type": "Question",
+    "id": "visitor-address",
+    "questions": [
+        {
+            "id": "visitor-address-question",
+            "title": "Enter details of this person\u2019s usual UK address",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "visitor-address-answer-building",
+                    "label": "Building",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "visitor-address-answer-street",
+                    "label": "Street",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "visitor-address-answer-city",
+                    "label": "Town or city",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "visitor-address-answer-county",
+                    "label": "County (optional)",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "visitor-address-answer-postcode",
+                    "label": "Postcode",
+                    "mandatory": false,
+                    "type": "TextField"
+                }
+            ]
+        }
+    ]
+}

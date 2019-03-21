@@ -1,0 +1,58 @@
+{
+    "type": "Question",
+    "id": "degree",
+    "questions": [
+        {
+            "id": "degree-question",
+            "titles": [
+                {
+                    "value": "Has <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> achieved a qualification at degree level or above?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Have you achieved a qualification at degree level or above?"
+                }
+            ],
+            "type": "General",
+            "guidance": {
+                "content": [
+                    {
+                        "title": "Include equivalent qualifications achieved anywhere outside England and Wales"
+                    }
+                ]
+            },
+            "answers": [
+                {
+                    "id": "degree-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Yes",
+                            "value": "Yes",
+                            "description": "For example degree, foundation degree, HND or HNC, NVQ level 4 and above, teaching or nursing"
+                        },
+                        {
+                            "label": "No",
+                            "value": "No",
+                            "description": "Questions on other NVQs, A levels, GCSEs and equivalents will follow"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "nvq-level"
+            }
+        }
+    ]
+}

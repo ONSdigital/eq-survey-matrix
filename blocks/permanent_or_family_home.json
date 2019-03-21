@@ -1,0 +1,60 @@
+{
+    "type": "Question",
+    "id": "permanent-or-family-home",
+    "questions": [
+        {
+            "id": "permanent-or-family-home-question",
+            "title": "Does anyone live at <em>{{answers['address-line-1']}}</em> as their permanent or family home?",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "permanent-or-family-home-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Yes",
+                            "value": "Yes"
+                        },
+                        {
+                            "label": "No",
+                            "value": "No",
+                            "description": "For example this is a second address or holiday home"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "household-composition",
+                "when": [
+                    {
+                        "id": "permanent-or-family-home-answer",
+                        "condition": "equals",
+                        "value": "Yes"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "else-permanent-or-family-home",
+                "when": [
+                    {
+                        "id": "permanent-or-family-home-answer",
+                        "condition": "equals",
+                        "value": "No"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "else-permanent-or-family-home"
+            }
+        }
+    ]
+}

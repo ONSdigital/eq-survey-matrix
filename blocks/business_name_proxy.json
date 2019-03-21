@@ -1,0 +1,39 @@
+{
+    "type": "Question",
+    "id": "business-name-proxy",
+    "questions": [
+        {
+            "id": "business-name-proxy-question",
+            "title": "What is the name of the organisation or business <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> works for?",
+            "description": "If they are self-employed in their own business, give the business name.",
+            "type": "MutuallyExclusive",
+            "mandatory": true,
+            "answers": [
+                {
+                    "id": "business-name-proxy-answer",
+                    "label": "Organisation or business name",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "no-business-name-proxy-answer",
+                    "mandatory": false,
+                    "type": "Checkbox",
+                    "options": [
+                        {
+                            "label": "No organisation or works for a private individual",
+                            "value": "No organisation or works for a private individual"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "job-title"
+            }
+        }
+    ]
+}

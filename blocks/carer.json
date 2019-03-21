@@ -1,0 +1,75 @@
+{
+    "type": "Question",
+    "id": "carer",
+    "questions": [
+        {
+            "id": "carer-question",
+            "title": "Do you look after, or give any help or support to, anyone because they have long-term physical or mental health conditions or illnesses, or problems related to old age?",
+            "guidance": {
+                "content": [
+                    {
+                        "title": "Exclude anything you do as part of your paid employment"
+                    }
+                ]
+            },
+            "type": "General",
+            "answers": [
+                {
+                    "id": "carer-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "No",
+                            "value": "No"
+                        },
+                        {
+                            "label": "Yes, 9 hours a week or less",
+                            "value": "Yes, 9 hours a week or less"
+                        },
+                        {
+                            "label": "Yes, 10 to 19 hours a week",
+                            "value": "Yes, 10 to 19 hours a week"
+                        },
+                        {
+                            "label": "Yes, 20 to 34 hours a week",
+                            "value": "Yes, 20 to 34 hours a week"
+                        },
+                        {
+                            "label": "Yes, 35 to 49 hours a week",
+                            "value": "Yes, 35 to 49 hours a week"
+                        },
+                        {
+                            "label": "Yes, 50 or more hours a week",
+                            "value": "Yes, 50 or more hours a week"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "sexual-identity",
+                "when": [
+                    {
+                        "id": "date-of-birth-answer",
+                        "condition": "less than",
+                        "date_comparison": {
+                            "value": "now",
+                            "offset_by": {
+                                "years": -16
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "household-member-completed"
+            }
+        }
+    ]
+}

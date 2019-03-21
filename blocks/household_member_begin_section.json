@@ -1,0 +1,19 @@
+{
+    "type": "Interstitial",
+    "id": "household-member-begin-section",
+    "title": "{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}",
+    "description": "In this section, we\u2019re going to ask you questions about <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em>.",
+    "content": [
+        {
+            "title": "Information you need",
+            "list": [
+                "Personal details such as date of birth, country of birth, religion etc.",
+                "Second or holiday homes",
+                "Languages",
+                "Unpaid care and health",
+                "Education and qualifications",
+                "Employment and travel to work"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "type": "Question",
+    "id": "census-type",
+    "questions": [
+        {
+            "id": "census-type-question",
+            "title": "When type of census?",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "census-type-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Communal establishment",
+                            "value": "Communal establishment"
+                        },
+                        {
+                            "label": "Household",
+                            "value": "Household"
+                        },
+                        {
+                            "label": "Neither",
+                            "value": "Neither"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ]
+}

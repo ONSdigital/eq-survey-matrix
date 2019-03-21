@@ -1,0 +1,74 @@
+{
+    "type": "Question",
+    "id": "black-ethnic-group",
+    "questions": [
+        {
+            "id": "black-ethnic-group-question",
+            "titles": [
+                {
+                    "value": "Which one best describes <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> Black, Black British, Caribbean or African ethnic group or background?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Which one best describes your Black, Black British, Caribbean or African ethnic group or background?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "guidance": {
+                        "show_guidance": "Why your answer is important",
+                        "hide_guidance": "Why your answer is important",
+                        "content": [
+                            {
+                                "description": "How you define your ethnic group is up to you. Sharing this information enables the government and other organisations to provide appropriate resources and policies such as housing, education, health and criminal justice."
+                            }
+                        ]
+                    },
+                    "id": "black-ethnic-group-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Caribbean",
+                            "value": "Caribbean"
+                        },
+                        {
+                            "label": "African",
+                            "value": "African",
+                            "detail_answer": {
+                                "id": "african-ethnic-group-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please specify African background"
+                            }
+                        },
+                        {
+                            "label": "Any Black, Black British or Caribbean background",
+                            "value": "Other",
+                            "detail_answer": {
+                                "id": "black-ethnic-group-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please specify Black, Black British, or Caribbean background"
+                            }
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "religion"
+            }
+        }
+    ]
+}

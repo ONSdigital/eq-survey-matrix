@@ -1,0 +1,6 @@
+{
+    "id": "household-member-completed",
+    "title": "There are no more questions for {{ [answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name }}",
+    "description": "",
+    "type": "Interstitial"
+}

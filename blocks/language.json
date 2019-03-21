@@ -1,0 +1,137 @@
+{
+    "type": "Question",
+    "id": "language",
+    "questions": [
+        {
+            "id": "language-england-question",
+            "title": "What is your main language?",
+            "type": "General",
+            "definitions": [
+                {
+                    "title": "What do we mean by 'main language'?",
+                    "content": [
+                        {
+                            "description": "Main language is your first or preferred language."
+                        }
+                    ]
+                }
+            ],
+            "answers": [
+                {
+                    "id": "language-england-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "English",
+                            "value": "English"
+                        },
+                        {
+                            "label": "Other",
+                            "value": "Other",
+                            "description": "Including British Sign Language",
+                            "detail_answer": {
+                                "id": "language-england-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please specify main language"
+                            }
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "language-welsh-question",
+            "title": "What is your main language?",
+            "type": "General",
+            "definitions": [
+                {
+                    "title": "What do we mean by \u2018main language\u2019?",
+                    "content": [
+                        {
+                            "description": "Main language is your first or preferred language."
+                        }
+                    ]
+                }
+            ],
+            "answers": [
+                {
+                    "id": "language-welsh-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "English or Welsh",
+                            "value": "English or Welsh"
+                        },
+                        {
+                            "label": "Other",
+                            "value": "Other",
+                            "description": "Including British Sign Language",
+                            "detail_answer": {
+                                "id": "language-welsh-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please specify main language"
+                            }
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "not equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "national-identity",
+                "when": [
+                    {
+                        "id": "language-england-answer",
+                        "condition": "equals",
+                        "value": "English"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "national-identity",
+                "when": [
+                    {
+                        "id": "language-welsh-answer",
+                        "condition": "equals",
+                        "value": "English or Welsh"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "english"
+            }
+        }
+    ]
+}

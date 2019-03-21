@@ -1,0 +1,76 @@
+{
+    "type": "Question",
+    "id": "last-year-address",
+    "questions": [
+        {
+            "id": "last-year-address-question",
+            "titles": [
+                {
+                    "value": "Enter details of their address one year ago",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Enter details of your address one year ago"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "last-year-address-answer-building",
+                    "label": "House name or number",
+                    "mandatory": true,
+                    "type": "TextField"
+                },
+                {
+                    "id": "last-year-address-answer-street",
+                    "label": "Street",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "last-year-address-answer-city",
+                    "label": "Town or city",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "last-year-address-answer-county",
+                    "label": "County (optional)",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "last-year-address-answer-postcode",
+                    "label": "Postcode",
+                    "mandatory": false,
+                    "type": "TextField"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "passports-proxy",
+                "when": [
+                    {
+                        "id": "proxy-check-answer",
+                        "condition": "equals",
+                        "value": "proxy"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "passports"
+            }
+        }
+    ]
+}

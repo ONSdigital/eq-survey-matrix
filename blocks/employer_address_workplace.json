@@ -1,0 +1,73 @@
+{
+    "type": "Question",
+    "id": "employer-address-workplace",
+    "questions": [
+        {
+            "id": "employer-address-workplace-question",
+            "titles": [
+                {
+                    "value": "What is the address of <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> workplace?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "What is the address of your workplace?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "employer-address-workplace-answer-building",
+                    "label": "Building",
+                    "mandatory": true,
+                    "type": "TextField"
+                },
+                {
+                    "id": "employer-address-workplace-answer-street",
+                    "label": "Street",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "employer-address-workplace-answer-city",
+                    "label": "Town or city",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "employer-address-workplace-answer-county",
+                    "label": "County (optional)",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "employer-adress-workplace-answer-postcode",
+                    "label": "Postcode",
+                    "mandatory": false,
+                    "type": "TextField",
+                    "guidance": {
+                        "show_guidance": "Why your answer is important",
+                        "hide_guidance": "Why your answer is important",
+                        "content": [
+                            {
+                                "description": "Workplace address and method of travel to work information is used to inform planning and modelling for transport services and policies. The information helps in the assessment of local public transport needs."
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "household-member-completed"
+            }
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "type": "Question",
+    "id": "supervise",
+    "questions": [
+        {
+            "id": "supervise-question",
+            "titles": [
+                {
+                    "value": "Does <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> supervise or oversee the work of other employees on a day-to-day basis?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Do you supervise or oversee the work of other employees on a day-to-day basis?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "supervise-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Yes",
+                            "value": "Yes"
+                        },
+                        {
+                            "label": "No",
+                            "value": "No"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "hours-worked"
+            }
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "type": "Question",
+    "id": "job-description-past",
+    "questions": [
+        {
+            "id": "job-description-past-question",
+            "titles": [
+                {
+                    "value": "Briefly describe what <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> did in their main job?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Briefly describe what you did in your main job?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "job-description-past-answer",
+                    "label": "Description",
+                    "mandatory": true,
+                    "type": "TextArea",
+                    "max_length": 200,
+                    "validation": {
+                        "messages": {
+                            "MAX_LENGTH_EXCEEDED": "Your answer has to be less than %(max)d characters long"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "employers-business-past"
+            }
+        }
+    ]
+}

@@ -1,0 +1,81 @@
+{
+    "type": "Question",
+    "id": "disability-limitation",
+    "questions": [
+        {
+            "id": "disability-limitation-question",
+            "titles": [
+                {
+                    "value": "Does any of <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> conditions or illnesses reduce their ability to carry out day-to-day activities?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "Do any of your conditions or illnesses reduce your ability to carry out day-to-day activities?"
+                }
+            ],
+            "definitions": [
+                {
+                    "title": "What do we mean by reduce your ability?",
+                    "content": [
+                        {
+                            "description": "This question is asking whether your health condition or illness currently affects your ability to carry-out normal daily activities."
+                        },
+                        {
+                            "description": "You should consider whether you are still affected whilst receiving any treatment, medication or using any devices for your condition or illness. For example, if you require a hearing aid and by using the device, you experience no restriction in carrying out your day-to-day activities, then you should select \u2018Not at all\u2019."
+                        },
+                        {
+                            "description": "\u2018Yes, a lot\u2019, should be selected if you usually need some level of support of family members, friends or personal social services for most normal daily activities."
+                        }
+                    ]
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "disability-limitation-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Yes, a lot",
+                            "value": "Yes, a lot"
+                        },
+                        {
+                            "label": "Yes, a little",
+                            "value": "Yes, a little"
+                        },
+                        {
+                            "label": "Not at all",
+                            "value": "Not at all"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "carer-proxy",
+                "when": [
+                    {
+                        "id": "proxy-check-answer",
+                        "condition": "equals",
+                        "value": "proxy"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "carer"
+            }
+        }
+    ]
+}

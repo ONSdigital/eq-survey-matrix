@@ -1,0 +1,39 @@
+{
+    "type": "Question",
+    "id": "business-name",
+    "questions": [
+        {
+            "id": "business-name-question",
+            "title": "What is the name of the organisation or business you work for?",
+            "description": "If you are self-employed in your own business, give the business name.",
+            "type": "MutuallyExclusive",
+            "mandatory": true,
+            "answers": [
+                {
+                    "id": "business-name-answer",
+                    "label": "Organisation or business name",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "no-business-name-answer",
+                    "mandatory": false,
+                    "type": "Checkbox",
+                    "options": [
+                        {
+                            "label": "No organisation or work for a private individual",
+                            "value": "No organisation or work for a private individual"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "job-title"
+            }
+        }
+    ]
+}

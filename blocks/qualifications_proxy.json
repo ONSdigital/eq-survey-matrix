@@ -1,0 +1,13 @@
+{
+    "type": "Interstitial",
+    "id": "qualifications-proxy",
+    "title": "The next set of questions is about {{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}} qualifications",
+    "description": "Record any qualifications they have ever achieved in England, Wales or worldwide, including equivalents, even if they are not using them now.",
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "apprenticeship"
+            }
+        }
+    ]
+}

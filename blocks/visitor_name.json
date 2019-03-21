@@ -1,0 +1,25 @@
+{
+    "type": "Question",
+    "id": "visitor-name",
+    "questions": [
+        {
+            "id": "visitor-name-question",
+            "title": "What is the name of visitor {{group_instance + 1}}?",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "visitor-first-name",
+                    "label": "First name",
+                    "mandatory": false,
+                    "type": "TextField"
+                },
+                {
+                    "id": "visitor-last-name",
+                    "label": "Last name",
+                    "mandatory": false,
+                    "type": "TextField"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "type": "Question",
+    "id": "type-of-accommodation",
+    "questions": [
+        {
+            "id": "type-of-accommodation-question",
+            "title": "What type of accommodation is <em>{{answers['address-line-1']}}</em>?",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "type-of-accommodation-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Whole house or bungalow",
+                            "value": "Whole house or bungalow"
+                        },
+                        {
+                            "label": "Flat, maisonette or apartment",
+                            "value": "Flat, maisonette or apartment",
+                            "description": "Including purpose-built flats and flats within converted and shared houses"
+                        },
+                        {
+                            "label": "Caravan or other mobile or temporary structure",
+                            "value": "Caravan or other mobile or temporary structure"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "type-of-house",
+                "when": [
+                    {
+                        "id": "type-of-accommodation-answer",
+                        "condition": "equals",
+                        "value": "Whole house or bungalow"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "type-of-flat",
+                "when": [
+                    {
+                        "id": "type-of-accommodation-answer",
+                        "condition": "equals",
+                        "value": "Flat, maisonette or apartment"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "self-contained-accommodation"
+            }
+        }
+    ]
+}

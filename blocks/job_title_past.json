@@ -1,0 +1,40 @@
+{
+    "type": "Question",
+    "id": "job-title-past",
+    "questions": [
+        {
+            "id": "job-title-past-question",
+            "titles": [
+                {
+                    "value": "What was <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive }}</em> full job title?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "What was your full job title?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "job-title-past-answer",
+                    "label": "Job title",
+                    "mandatory": true,
+                    "type": "TextField"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "job-description-past"
+            }
+        }
+    ]
+}

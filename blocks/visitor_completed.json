@@ -1,0 +1,6 @@
+{
+    "id": "visitor-completed",
+    "title": "You have completed all questions for Visitor {{group_instance + 1}}",
+    "description": "",
+    "type": "Interstitial"
+}

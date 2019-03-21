@@ -1,0 +1,223 @@
+{
+    "type": "Question",
+    "id": "religion",
+    "questions": [
+        {
+            "id": "religion-question",
+            "titles": [
+                {
+                    "value": "What is <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> religion?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "What is your religion?"
+                }
+            ],
+            "description": "This question is voluntary",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "religion-england-answer",
+                    "mandatory": false,
+                    "label": "Select one option only",
+                    "options": [
+                        {
+                            "label": "No religion",
+                            "value": "No religion"
+                        },
+                        {
+                            "label": "Christian",
+                            "value": "Christian",
+                            "description": "Including Church of England, Catholic, Protestant and all other Christian denominations"
+                        },
+                        {
+                            "label": "Buddhist",
+                            "value": "Buddhist"
+                        },
+                        {
+                            "label": "Hindu",
+                            "value": "Hindu"
+                        },
+                        {
+                            "label": "Jewish",
+                            "value": "Jewish"
+                        },
+                        {
+                            "label": "Muslim",
+                            "value": "Muslim"
+                        },
+                        {
+                            "label": "Sikh",
+                            "value": "Sikh"
+                        },
+                        {
+                            "label": "Any other religion",
+                            "value": "Other",
+                            "detail_answer": {
+                                "id": "religion-england-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please specify other religion"
+                            }
+                        }
+                    ],
+                    "type": "Checkbox"
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "religion-wales-question",
+            "titles": [
+                {
+                    "value": "What is <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}}</em> religion?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "What is your religion?"
+                }
+            ],
+            "description": "This question is voluntary",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "religion-wales-answer",
+                    "mandatory": false,
+                    "label": "Select one option only",
+                    "options": [
+                        {
+                            "label": "No religion",
+                            "value": "No religion"
+                        },
+                        {
+                            "label": "Christian",
+                            "value": "Christian",
+                            "description": "All denominations"
+                        },
+                        {
+                            "label": "Buddhist",
+                            "value": "Buddhist"
+                        },
+                        {
+                            "label": "Hindu",
+                            "value": "Hindu"
+                        },
+                        {
+                            "label": "Jewish",
+                            "value": "Jewish"
+                        },
+                        {
+                            "label": "Muslim",
+                            "value": "Muslim"
+                        },
+                        {
+                            "label": "Sikh",
+                            "value": "Sikh"
+                        },
+                        {
+                            "label": "Any other religion",
+                            "value": "Other",
+                            "detail_answer": {
+                                "id": "religion-wales-answer-other",
+                                "type": "TextField",
+                                "mandatory": false,
+                                "label": "Please specify other religion"
+                            }
+                        }
+                    ],
+                    "type": "Checkbox"
+                }
+            ],
+            "skip_conditions": [
+                {
+                    "when": [
+                        {
+                            "meta": "region_code",
+                            "condition": "not equals",
+                            "value": "GB-WLS"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "past-usual-household-address-first-person-proxy",
+                "when": [
+                    {
+                        "answer_ids": [
+                            "another-address-answer"
+                        ],
+                        "type": "answer_count",
+                        "condition": "less than",
+                        "value": 2
+                    },
+                    {
+                        "id": "proxy-check-answer",
+                        "condition": "equals",
+                        "value": "proxy"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "past-usual-household-address-first-person",
+                "when": [
+                    {
+                        "answer_ids": [
+                            "another-address-answer"
+                        ],
+                        "type": "answer_count",
+                        "condition": "less than",
+                        "value": 2
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "past-usual-household-address",
+                "when": [
+                    {
+                        "answer_ids": [
+                            "another-address-answer"
+                        ],
+                        "type": "answer_count",
+                        "condition": "greater than",
+                        "value": 1
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "past-usual-address-first-person"
+            }
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "Question",
+    "id": "census-date",
+    "questions": [
+        {
+            "id": "census-date-question",
+            "title": "When is Census day?",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "census-date-answer",
+                    "mandatory": true,
+                    "type": "MonthYearDate"
+                }
+            ]
+        }
+    ]
+}

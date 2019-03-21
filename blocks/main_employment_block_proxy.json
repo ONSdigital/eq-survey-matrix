@@ -1,0 +1,13 @@
+{
+    "type": "Interstitial",
+    "id": "main-employment-block-proxy",
+    "title": "Answer the next set of questions for {{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name_possessive}} main job",
+    "description": "Their main job is the job in which they usually work the most hours",
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "main-job-type"
+            }
+        }
+    ]
+}

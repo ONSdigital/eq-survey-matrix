@@ -1,0 +1,35 @@
+{
+    "type": "Question",
+    "id": "proxy",
+    "questions": [
+        {
+            "id": "proxy-question",
+            "title": "Are you <em>{{ [answers['first-name'][group_instance], answers['middle-names'][group_instance], answers['last-name'][group_instance]] | format_household_name }}<em>?",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "proxy-check-answer",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "Yes, I am",
+                            "value": "Yes, I am"
+                        },
+                        {
+                            "label": "No, I am answering on their behalf",
+                            "value": "proxy"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "date-of-birth"
+            }
+        }
+    ]
+}

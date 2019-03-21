@@ -1,0 +1,77 @@
+{
+    "type": "Question",
+    "id": "term-time-location-with-second-address-non-uk",
+    "questions": [
+        {
+            "id": "term-time-location-question-with-second-address-non-uk",
+            "titles": [
+                {
+                    "value": "During term time, where does <em>{{[answers['first-name'][group_instance], answers['last-name'][group_instance]] | format_household_name}}</em> usually live?",
+                    "when": [
+                        {
+                            "id": "proxy-check-answer",
+                            "condition": "equals",
+                            "value": "proxy"
+                        }
+                    ]
+                },
+                {
+                    "value": "During term time, where do you usually live?"
+                }
+            ],
+            "type": "General",
+            "answers": [
+                {
+                    "id": "term-time-location-answer-with-second-address-non-uk",
+                    "mandatory": true,
+                    "options": [
+                        {
+                            "label": "{{answers['address-line-1']}}, {{answers['address-line-2']}}",
+                            "value": "household-address"
+                        },
+                        {
+                            "label": "The address in {{answers['another-address-answer-other']| format_household_name}}",
+                            "value": "30-day-address"
+                        },
+                        {
+                            "label": "Another address",
+                            "value": "Another address"
+                        }
+                    ],
+                    "type": "Radio"
+                }
+            ]
+        }
+    ],
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "household-member-completed",
+                "when": [
+                    {
+                        "id": "term-time-location-answer-with-second-address-non-uk",
+                        "condition": "equals",
+                        "value": "Another address"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "household-member-completed",
+                "when": [
+                    {
+                        "id": "term-time-location-answer-with-second-address-non-uk",
+                        "condition": "equals",
+                        "value": "30-day-address"
+                    }
+                ]
+            }
+        },
+        {
+            "goto": {
+                "block": "country-of-birth"
+            }
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "Interstitial",
+    "id": "main-employment-block",
+    "title": "Answer the next set of questions for your main job",
+    "description": "Your main job is the job in which you usually work the most hours",
+    "routing_rules": [
+        {
+            "goto": {
+                "block": "main-job-type"
+            }
+        }
+    ]
+}

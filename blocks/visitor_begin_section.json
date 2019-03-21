@@ -1,0 +1,19 @@
+{
+    "type": "Interstitial",
+    "id": "visitor-begin-section",
+    "title": "Visitors",
+    "description": "In this section, we\u2019re going to ask you about any visitors that were staying overnight at <em>{{answers['address-line-1']}}</em> on 10 September 2018.",
+    "content": [
+        {
+            "title": "Information you need about your visitor",
+            "list": [
+                "Date of birth",
+                "Sex",
+                "Usual address"
+            ]
+        },
+        {
+            "description": "We ask for visitor information to ensure that everyone is counted. This helps to produce accurate population estimates. Add any visitors, even if you think they may have been included on a census form at another address."
+        }
+    ]
+}

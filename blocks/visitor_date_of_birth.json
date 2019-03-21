@@ -1,0 +1,18 @@
+{
+    "type": "Question",
+    "id": "visitor-date-of-birth",
+    "questions": [
+        {
+            "id": "visitor-date-of-birth-question",
+            "title": "What is this person\u2019s date of birth?",
+            "type": "General",
+            "answers": [
+                {
+                    "id": "visitor-date-of-birth-answer",
+                    "mandatory": false,
+                    "type": "Date"
+                }
+            ]
+        }
+    ]
+}
